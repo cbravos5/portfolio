@@ -4,7 +4,7 @@ import { fonts } from "./fonts";
 export const theme: MantineThemeOverride = {
   colorScheme: 'dark',
 
-  fontFamily: fonts.sono.style.fontFamily,
+  fontFamily: fonts.sono,
 
   colors: {
     primary: ['#0C0B2B'],
@@ -13,7 +13,6 @@ export const theme: MantineThemeOverride = {
     support: ['#5D6267']
   },
 
-
   globalStyles: ((theme) => ({
     'html, body, #__next': {
       width: '100%',
@@ -21,6 +20,7 @@ export const theme: MantineThemeOverride = {
     },
 
     body: {
+      color: theme.colors.tertiary,
       background: theme.fn.linearGradient(180, '#0C0B2B', '#151424')
     }
   })) 
