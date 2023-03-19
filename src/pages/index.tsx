@@ -1,13 +1,15 @@
+import { About } from "@/sections/About";
 import { Hero } from "@/sections/Hero";
-import { Stack } from "@mantine/core";
+import { Box, Stack } from "@mantine/core";
 
 
 
 export default function Home() {
 
   return (
-    <Stack h="100%" justify="center" align="center" spacing="xs">
+    <Box h="100%">
       <Hero />
-    </Stack>
+      <About />
+    </Box>
   )
 }

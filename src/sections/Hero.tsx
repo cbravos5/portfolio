@@ -26,7 +26,7 @@ export function Hero() {
   const { classes } = useStyles();
 
   return (
-    <BackgroundImage src="dev_pic.png" h="100%">
+    <BackgroundImage src="dev_pic.png" h="100%" mih="100%">
       <Stack h="100%" justify="center" align="center" spacing="xs">
         <Title ff={fonts.nunito} order={3} fw={400} size="clamp(18px, 3vw, 48px)" mb="lg">
           Welcome, my name is

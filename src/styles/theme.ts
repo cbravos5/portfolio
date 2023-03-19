@@ -16,12 +16,14 @@ export const theme: MantineThemeOverride = {
   globalStyles: ((theme) => ({
     'html, body, #__next': {
       width: '100%',
-      height: '100%'
+      height: '100%',
     },
 
     body: {
       color: theme.colors.tertiary,
-      background: theme.fn.linearGradient(180, '#0C0B2B', '#151424')
+      background: theme.fn.linearGradient(180, '#0C0B2B', '#151424'),
+
+      overflowY: 'scroll'
     }
   })) 
 }
