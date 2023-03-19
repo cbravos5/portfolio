@@ -14,13 +14,21 @@ export const theme: MantineThemeOverride = {
   },
 
   globalStyles: ((theme) => ({
+    '*': {
+      padding: 0,
+      margin: 0,
+
+      boxSizing: 'border-box',
+    },
+
     'html, body, #__next': {
-      width: '100%',
-      height: '100%',
+      minWidth: '100%',
+      minHeight: '100%',
+
+      height: '100%'
     },
 
     body: {
-      color: theme.colors.tertiary,
       background: theme.fn.linearGradient(180, '#0C0B2B', '#151424'),
 
       overflowY: 'scroll'

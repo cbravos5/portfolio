@@ -23,18 +23,18 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export function Hero() {
-  const { classes } = useStyles();
+  const { classes, theme } = useStyles();
 
   return (
     <BackgroundImage src="dev_pic.png" h="100%" mih="100%">
       <Stack h="100%" justify="center" align="center" spacing="xs">
-        <Title ff={fonts.nunito} order={3} fw={400} size="clamp(18px, 3vw, 48px)" mb="lg">
+        <Title ff={fonts.nunito} order={3} fw={400} color={theme.colors.tertiary[0]} size="clamp(18px, 3vw, 48px)" mb="lg">
           Welcome, my name is
         </Title>
-        <Title ff={fonts.nunito} fw={400} size="clamp(28px, 5vw, 96px)">
+        <Title ff={fonts.nunito} fw={400}  color={theme.colors.tertiary[0]}size="clamp(28px, 5vw, 96px)">
           {'<>'}Chrystopher Bravos{'</>'}
         </Title>
-        <Title ff={fonts.nunito} order={2} fw={400} size="clamp(20px, 3.5vw, 60px)">
+        <Title ff={fonts.nunito} order={2} fw={400} color={theme.colors.tertiary[0]} size="clamp(20px, 3.5vw, 60px)">
           I'm full stack software engineer
         </Title>
         <Flex justify="center" gap="md" className={classes.socialLinks}>
