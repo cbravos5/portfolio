@@ -1,54 +1,13 @@
-import { fonts } from "@/styles/fonts";
-import { Anchor, BackgroundImage, Center, createStyles, Flex, Title, useMantineTheme } from "@mantine/core";
-import { BrandGithub, BrandInstagram, BrandLinkedin } from "tabler-icons-react";
+import { Hero } from "@/sections/Hero";
+import { Stack } from "@mantine/core";
 
-const useStyles = createStyles((theme) => ({
-  socialLinks: {
-    marginTop: '10%',
 
-    svg: {
-      width: 30,
-      height: 30,
-
-      stroke: theme.colors.secondary[0]
-    },
-
-    [`@media (min-width: ${theme.breakpoints.md})`]: {
-      svg: {
-        width: 40,
-        height: 40,
-      }
-    }
-  }
-}));
 
 export default function Home() {
-  const { classes, theme } = useStyles();
 
   return (
-    <BackgroundImage src="dev_pic.png" h="100%">
-      <Flex h="100%" direction="column" justify="center" align="center">
-        <Title ff={fonts.nunito} order={3} fw={400} size="clamp(18px, 3vw, 48px)" mb="lg">
-          Welcome, my name is
-        </Title>
-        <Title ff={fonts.nunito} fw={400} size="clamp(28px, 5vw, 96px)">
-          {'<>'}Chrystopher Bravos{'</>'}
-        </Title>
-        <Title ff={fonts.nunito} order={2} fw={400} size="clamp(20px, 3.5vw, 60px)">
-            I'm full stack software engineer
-        </Title>
-        <Flex justify="center" gap="md" className={classes.socialLinks}>
-          <Anchor href="https://github.com/cbravos5" target="_blank">
-            <BrandGithub/>
-          </Anchor>
-          <Anchor href="https://github.com/cbravos5" target="_blank">
-            <BrandLinkedin/>
-          </Anchor>
-          <Anchor href="https://github.com/cbravos5" target="_blank">
-            <BrandInstagram/>
-          </Anchor>
-        </Flex>
-      </Flex>
-    </BackgroundImage>
+    <Stack h="100%" justify="center" align="center" spacing="xs">
+      <Hero />
+    </Stack>
   )
 }
