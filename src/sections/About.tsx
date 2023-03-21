@@ -1,3 +1,4 @@
+import { SectionTitle } from '@/components/SectionTitle';
 import { Spot } from '@/components/Spot';
 import { mediaQuery } from '@/helpers/mediaQuery';
 import { fonts } from '@/styles/fonts';
@@ -14,17 +15,6 @@ import {
 } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
-  titleContainer: {
-    color: theme.colors.secondary[0],
-
-    [`@media (min-width: ${theme.breakpoints.sm})`]: {
-      flexDirection: 'row',
-      alignItems: 'flex-start',
-
-      width: '100%',
-    },
-  },
-
   textContainer: {
     padding: 15,
 
@@ -32,7 +22,7 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     gap: 20,
 
-    [`@media (min-width: ${theme.breakpoints.sm})`]: {
+    [mediaQuery(theme.breakpoints.sm)]: {
       alignItems: 'flex-start',
 
       '.mantine-Text-root': { flex: 3 },
@@ -66,7 +56,7 @@ const useStyles = createStyles((theme) => ({
     fontFamily: fonts.nunito,
     fontSize: 'clamp(16px, 1.2vw, 26px)',
 
-    li: { position: 'relative'},
+    li: { position: 'relative' },
 
     'li::before': {
       content: "''",
@@ -77,36 +67,38 @@ const useStyles = createStyles((theme) => ({
       top: '50%',
       left: -20,
       transform: 'translateY(-50%)',
-      
+
       width: 10,
       height: 10,
       borderRadius: 10,
 
-      background: theme.colors.secondary[0]
+      background: theme.colors.secondary[0],
     },
 
     [mediaQuery(theme.breakpoints.xs)]: {
       gridTemplateColumns: 'repeat(2, 1fr)',
     },
-    
+
     [mediaQuery(theme.breakpoints.sm)]: {
       columnGap: '3rem',
       rowGap: '1rem',
       gridTemplateColumns: 'repeat(3, 1fr)',
     },
-  }
+  },
 }));
 
 export function About() {
   const { classes, theme } = useStyles();
 
   return (
-    <Stack h="fit-content" mih="100%" justify="center" align="center" spacing="lg">
-      <Flex className={classes.titleContainer}>
-        <Title order={2} fw={400} size="clamp(22px, 3.5vw, 60px)">
-          Who am I?
-        </Title>
-      </Flex>
+    <Stack
+      h="fit-content"
+      mih="100%"
+      justify="center"
+      align="center"
+      spacing="lg"
+    >
+      <SectionTitle>Who am I?</SectionTitle>
       <Flex justify="center" className={classes.textContainer}>
         <Text
           lts="-0.05em"
@@ -129,11 +121,16 @@ export function About() {
           <Image src="profile.png" alt="Chrystopher Bravos" />
         </Box>
       </Flex>
-      <Flex w="100%" justify="center" align="center" direction="column" gap="lg" >
-        <Text lts="-0.05em"
-          align="center"
-          size="clamp(18px, 1.2vw, 26px)"
-          >Some Technologies I'm currently working with:</Text>
+      <Flex
+        w="100%"
+        justify="center"
+        align="center"
+        direction="column"
+        gap="lg"
+      >
+        <Text lts="-0.05em" align="center" size="clamp(18px, 1.2vw, 26px)">
+          Some Technologies I'm currently working with:
+        </Text>
         <List className={classes.skills} listStyleType="none">
           <List.Item>Typescript</List.Item>
           <List.Item>Nodejs</List.Item>
@@ -143,7 +140,6 @@ export function About() {
           <List.Item>Neo4j</List.Item>
         </List>
       </Flex>
-
     </Stack>
   );
 }

@@ -13,6 +13,10 @@ export const theme: MantineThemeOverride = {
     support: ['#5D6267']
   },
 
+  breakpoints: {
+    xs: '24em'
+  },
+
   globalStyles: ((theme) => ({
     '*': {
       padding: 0,
@@ -29,7 +33,7 @@ export const theme: MantineThemeOverride = {
     },
 
     body: {
-      background: theme.fn.linearGradient(180, '#0C0B2B', '#151424'),
+      background: theme.colors.primary[0],//theme.fn.linearGradient(180, '#0C0B2B', '#151424'),
 
       overflowY: 'scroll'
     }

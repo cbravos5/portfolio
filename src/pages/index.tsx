@@ -1,4 +1,5 @@
 import { About } from "@/sections/About";
+import { Experience } from "@/sections/Experience";
 import { Hero } from "@/sections/Hero";
 import { Box, createStyles, Stack } from "@mantine/core";
 
@@ -29,6 +30,7 @@ export default function Home() {
     <Box h="100%" className={classes.container}>
       <Hero />
       <About />
+      <Experience />
     </Box>
   )
 }
