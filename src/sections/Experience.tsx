@@ -1,23 +1,19 @@
+import { motion } from 'framer-motion';
+
 import { SectionTitle } from '@/components/SectionTitle';
-import { Spot } from '@/components/Spot';
-import { mediaQuery } from '@/helpers/mediaQuery';
 import { fonts } from '@/styles/fonts';
 import {
   Anchor,
   Box,
   createStyles,
   Flex,
-  Image,
   List,
-  Mark,
   Stack,
   Tabs,
-  Text,
   Title,
 } from '@mantine/core';
-import { ListItem } from '@mantine/core/lib/List/ListItem/ListItem';
 import { useMediaQuery } from '@mantine/hooks';
-import { useRef } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { Star } from 'tabler-icons-react';
 
 const useStyles = createStyles((theme) => ({
@@ -153,9 +149,18 @@ export function Experience() {
 
 
       <Flex gap="lg">
-        {starCount.map((_, i) =>
-          <Star key={'star' + i} size={60} fill={theme.colors.support[0]} stroke={theme.colors.support[0]}/>
-        )}
+        <AnimatePresence>
+          {starCount.map((_, i) =>
+            <motion.div 
+              key={'star' + i}
+              transition={{ duration: 2 }}
+              initial={{ x: '-110vw', rotate: 0, opacity: 0 }}
+              animate={{ x: 0, rotate: 720, opacity: 1 }}
+            >
+              <Star size={60} fill={theme.colors.support[0]} stroke={theme.colors.support[0]}/>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </Flex>
     </Stack>
   );
