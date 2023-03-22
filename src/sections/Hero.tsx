@@ -50,6 +50,7 @@ export function Hero() {
           fw={400}
           color={theme.colors.tertiary[0]}
           size="clamp(28px, 5vw, 96px)"
+          align="center"
         >
           {'<>'}Chrystopher Bravos{'</>'}
         </Title>

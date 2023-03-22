@@ -61,7 +61,6 @@ export function Experience() {
   return (
     <Stack
       h="fit-content"
-      mih="100%"
       justify="center"
       align="center"
       spacing="lg"
@@ -146,7 +145,6 @@ export function Experience() {
           </List>
         </Tabs.Panel>
       </Tabs>
-
 
       <Flex gap="lg">
         <AnimatePresence>

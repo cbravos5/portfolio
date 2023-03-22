@@ -54,7 +54,7 @@ const useStyles = createStyles((theme) => ({
     columnGap: '2rem',
 
     fontFamily: fonts.nunito,
-    fontSize: 'clamp(16px, 1.2vw, 26px)',
+    fontSize: 'clamp(14px, 1.2vw, 26px)',
 
     li: { position: 'relative' },
 
@@ -93,7 +93,6 @@ export function About() {
   return (
     <Stack
       h="fit-content"
-      mih="100%"
       justify="center"
       align="center"
       spacing="lg"
@@ -103,7 +102,7 @@ export function About() {
         <Text
           lts="-0.05em"
           align="justify"
-          size="clamp(12px, 1.2vw, 26px)"
+          size="clamp(14px, 1.2vw, 26px)"
           color={theme.colors.tertiary[0]}
         >
           I am a computer science graduated who works full time as a developer.

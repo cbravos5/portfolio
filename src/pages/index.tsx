@@ -1,5 +1,6 @@
 import { About } from "@/sections/About";
 import { Experience } from "@/sections/Experience";
+import { GetInTouch } from "@/sections/GetInTouch";
 import { Hero } from "@/sections/Hero";
 import { Box, createStyles, Stack } from "@mantine/core";
 
@@ -9,7 +10,7 @@ const useStyles = createStyles((theme => ({
       padding: '15px 10px',
 
       [`@media (min-width: ${theme.breakpoints.xs})`]: {
-        padding: '10%',
+        padding: '8%',
       },
 
       [`@media (min-width: ${theme.breakpoints.sm})`]: {
@@ -31,6 +32,7 @@ export default function Home() {
       <Hero />
       <About />
       <Experience />
+      <GetInTouch />
     </Box>
   )
 }
