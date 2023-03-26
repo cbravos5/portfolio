@@ -1,41 +1,39 @@
-import { SectionTitle } from '@/components/SectionTitle';
-import { Spot } from '@/components/Spot';
-import { mediaQuery } from '@/helpers/mediaQuery';
-import { fonts } from '@/styles/fonts';
+import { SectionTitle } from "@/components/SectionTitle";
+import { Spot } from "@/components/Spot";
+import { mediaQuery } from "@/helpers/mediaQuery";
+import { fonts } from "@/styles/fonts";
 import {
   Box,
   createStyles,
   Flex,
   Image,
   List,
-  Mark,
   Stack,
   Text,
-  Title,
-} from '@mantine/core';
+} from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   textContainer: {
     padding: 15,
 
-    flexDirection: 'column',
-    alignItems: 'center',
+    flexDirection: "column",
+    alignItems: "center",
     gap: 20,
 
     [mediaQuery(theme.breakpoints.sm)]: {
-      alignItems: 'flex-start',
+      alignItems: "flex-start",
 
-      '.mantine-Text-root': { flex: 3 },
+      ".mantine-Text-root": { flex: 3 },
 
-      flexDirection: 'row',
+      flexDirection: "row",
     },
   },
 
   picture: {
-    width: 'fit-content',
-    padding: '0 8px 8px 0',
-    borderWidth: '0 8px 8px 0',
-    borderStyle: 'solid',
+    width: "fit-content",
+    padding: "0 8px 8px 0",
+    borderWidth: "0 8px 8px 0",
+    borderStyle: "solid",
     borderColor: theme.colors.secondary[0],
 
     img: { maxWidth: 180 },
@@ -43,30 +41,30 @@ const useStyles = createStyles((theme) => ({
     [mediaQuery(theme.breakpoints.sm)]: {
       flex: 1,
 
-      img: { maxWidth: '100%' },
+      img: { maxWidth: "100%" },
     },
   },
 
   skills: {
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-    rowGap: '0.5rem',
-    columnGap: '2rem',
+    display: "grid",
+    gridTemplateColumns: "1fr",
+    rowGap: "0.5rem",
+    columnGap: "2rem",
 
     fontFamily: fonts.nunito,
-    fontSize: 'clamp(14px, 1.2vw, 26px)',
+    fontSize: "clamp(14px, 1.2vw, 26px)",
 
-    li: { position: 'relative' },
+    li: { position: "relative" },
 
-    'li::before': {
+    "li::before": {
       content: "''",
 
-      position: 'absolute',
-      verticalAlign: 'middle',
+      position: "absolute",
+      verticalAlign: "middle",
 
-      top: '50%',
+      top: "50%",
       left: -20,
-      transform: 'translateY(-50%)',
+      transform: "translateY(-50%)",
 
       width: 10,
       height: 10,
@@ -76,13 +74,13 @@ const useStyles = createStyles((theme) => ({
     },
 
     [mediaQuery(theme.breakpoints.xs)]: {
-      gridTemplateColumns: 'repeat(2, 1fr)',
+      gridTemplateColumns: "repeat(2, 1fr)",
     },
 
     [mediaQuery(theme.breakpoints.sm)]: {
-      columnGap: '3rem',
-      rowGap: '1rem',
-      gridTemplateColumns: 'repeat(3, 1fr)',
+      columnGap: "3rem",
+      rowGap: "1rem",
+      gridTemplateColumns: "repeat(3, 1fr)",
     },
   },
 }));
@@ -91,12 +89,7 @@ export function About() {
   const { classes, theme } = useStyles();
 
   return (
-    <Stack
-      h="fit-content"
-      justify="center"
-      align="center"
-      spacing="lg"
-    >
+    <Stack h="fit-content" justify="center" align="center" spacing="lg">
       <SectionTitle>Who am I?</SectionTitle>
       <Flex justify="center" className={classes.textContainer}>
         <Text
@@ -107,7 +100,7 @@ export function About() {
         >
           I am a computer science graduated who works full time as a developer.
           My insterest in web development started in college, playing around
-          with basic <Spot>HTML</Spot>, <Spot>CSS</Spot> and some{' '}
+          with basic <Spot>HTML</Spot>, <Spot>CSS</Spot> and some{" "}
           <Spot>Javascript</Spot>. Later, I got my first job as an intern, where
           I got in touch with the first trending libraries and frameworks and
           also the full stack environment.
@@ -126,6 +119,7 @@ export function About() {
         align="center"
         direction="column"
         gap="lg"
+        mb="lg"
       >
         <Text lts="-0.05em" align="center" size="clamp(18px, 1.2vw, 26px)">
           Some Technologies I'm currently working with:

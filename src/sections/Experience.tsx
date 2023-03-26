@@ -15,10 +15,19 @@ import {
 import { useMediaQuery } from '@mantine/hooks';
 import { AnimatePresence } from 'framer-motion';
 import { Star } from 'tabler-icons-react';
+import { mediaQuery } from '@/helpers/mediaQuery';
 
 const useStyles = createStyles((theme) => ({
-  tabList: {
-    width: '100%',
+  tabs: {
+    height: 450,
+
+    [mediaQuery(theme.breakpoints.sm)]: {
+      height: 380
+    },
+
+    '.mantine-Tabs-tabList': {
+      width: '100%',
+    },
 
     '.mantine-Tabs-tab': {
       transition: '0.5s ease',
@@ -67,8 +76,8 @@ export function Experience() {
     >
       <SectionTitle>My experience</SectionTitle>
 
-      <Tabs defaultChecked defaultValue="cmc" w="80%" h={450}>
-        <Tabs.List grow className={classes.tabList}>
+      <Tabs defaultChecked defaultValue="cmc" w="80%" className={classes.tabs}>
+        <Tabs.List grow>
           <Tabs.Tab value="cmc">CMC</Tabs.Tab>
           <Tabs.Tab value="leadsoft">Leadsoft</Tabs.Tab>
         </Tabs.List>

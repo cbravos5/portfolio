@@ -61,6 +61,7 @@ export function GetInTouch() {
           rightIcon={<Mail size={32} />}
           component={Link}
           href="mailto:cnbravos5@gmail.com"
+          target="_blank"
         >
           Say Hello
         </Button>
@@ -72,7 +73,8 @@ export function GetInTouch() {
           sx={{ fontSize: 'clamp(18px, 1.2vw, 26px)' }}
           rightIcon={<BrandWhatsapp size={32} />}
           component={Link}
-          href="https://api.whatsapp.com/send?phone=+5541988854317"
+          href="https://wa.me/5541988854317"
+          target="_blank"
         >
           Say Hi
         </Button>

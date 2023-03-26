@@ -1,3 +1,4 @@
+import { NavBar } from "@/components/NavBar";
 import { About } from "@/sections/About";
 import { Experience } from "@/sections/Experience";
 import { GetInTouch } from "@/sections/GetInTouch";
@@ -29,6 +30,7 @@ export default function Home() {
 
   return (
     <Box h="100%" className={classes.container}>
+      <NavBar />
       <Hero />
       <About />
       <Experience />
