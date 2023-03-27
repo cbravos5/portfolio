@@ -89,7 +89,7 @@ export function About() {
   const { classes, theme } = useStyles();
 
   return (
-    <Stack h="fit-content" justify="center" align="center" spacing="lg">
+    <Stack id="about" h="fit-content" justify="center" align="center" spacing="lg">
       <SectionTitle>Who am I?</SectionTitle>
       <Flex justify="center" className={classes.textContainer}>
         <Text

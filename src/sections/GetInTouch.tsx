@@ -22,6 +22,7 @@ export function GetInTouch() {
 
   return (
     <Stack
+      id="contact"
       h="fit-content"
       mih="100%"
       justify="center"

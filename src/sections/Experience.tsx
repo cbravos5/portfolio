@@ -69,6 +69,7 @@ export function Experience() {
 
   return (
     <Stack
+      id="experience"
       h="fit-content"
       justify="center"
       align="center"

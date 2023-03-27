@@ -29,7 +29,9 @@ export const theme: MantineThemeOverride = {
       minWidth: '100%',
       minHeight: '100%',
 
-      height: '100%'
+      height: '100%',
+
+      scrollBehavior: 'smooth'
     },
 
     body: {

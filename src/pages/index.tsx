@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <Box h="100%" className={classes.container}>
       <NavBar />
-      <Hero />
+      <Hero/>
       <About />
       <Experience />
       <GetInTouch />
