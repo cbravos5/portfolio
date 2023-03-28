@@ -1,20 +1,20 @@
 import {
-  Box,
+  BoxProps,
   Burger,
+  createPolymorphicComponent,
   createStyles,
   MediaQuery,
-  Menu,
   Navbar,
   NavLink,
-  Portal,
-  Stack,
   useMantineTheme,
 } from '@mantine/core';
-import { useDisclosure, useWindowScroll } from '@mantine/hooks';
+import { useDisclosure, useMediaQuery, useWindowScroll } from '@mantine/hooks';
 import { AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
+import { mediaQuery } from '@/helpers/mediaQuery';
+import styled from '@emotion/styled';
 
 const useMantineStyles = createStyles((theme) => ({
   navbar: {
@@ -24,9 +24,28 @@ const useMantineStyles = createStyles((theme) => ({
     padding: `${theme.spacing.sm} ${theme.spacing.lg}`,
 
     zIndex: 2,
-    background: 'transparent',
+
     justifyContent: 'center',
     transition: '0.5s ease',
+
+    flexDirection: 'row',
+
+    background: 'transparent',
+
+    [mediaQuery(theme.breakpoints.sm)]: {
+      width: 'fit-content',
+      borderRadius: '0 0 10px 10px',
+      left: '50%',
+      transform: 'translate(-50%)',
+
+      background: theme.colors.tertiary[0],
+
+      top: -60,
+
+      '&:hover': {
+        top: 0,
+      },
+    },
   },
 
   dropdown: {
@@ -57,6 +76,8 @@ const useMantineStyles = createStyles((theme) => ({
 
       transition: '0.25s ease',
 
+      '&:hover': { background: 'none' },
+
       '&:active': {
         background: 'none',
         transform: 'scale(0.9)',
@@ -67,7 +88,7 @@ const useMantineStyles = createStyles((theme) => ({
       color: theme.colors.primary[0],
       background: 'none',
       textAlign: 'center',
-      fontSize: '1.5rem',
+      fontSize: '2rem',
       fontWeight: 600,
 
       whiteSpace: 'nowrap',
@@ -77,6 +98,60 @@ const useMantineStyles = createStyles((theme) => ({
   },
 }));
 
+const _Navs = styled.div(({ theme }) => ({
+  display: 'none',
+
+  gap: '2rem',
+
+  a: {
+    position: 'relative',
+    width: 'fit-content',
+    transition: 'all 0.25s ease',
+
+    '&:active': {
+      background: 'none',
+      transform: 'scale(0.9)',
+    },
+
+    '&:after': {
+      transition: 'all 0.5s ease',
+      content: "''",
+      position: 'absolute',
+      bottom: 5,
+      left: 12,
+      width: 0,
+      height: 5,
+      background: theme.colors.secondary[0],
+    },
+
+    '&:hover': {
+      background: 'none',
+      '&::after': { width: '100%' },
+    },
+  },
+
+  span: {
+    color: theme.colors.secondary[0],
+    background: 'none',
+    fontSize: '1.5rem',
+    fontWeight: 400,
+
+    whiteSpace: 'nowrap',
+
+    textTransform: 'uppercase',
+  },
+
+  [mediaQuery(theme.breakpoints.sm)]: {
+    display: 'flex',
+
+    color: theme.colors.secondary[0],
+    fontSize: '1.375rem',
+    fontWeight: 400,
+  },
+}));
+
+const Navs = createPolymorphicComponent<'div', BoxProps>(_Navs);
+
 const links = [
   { label: 'About me', ref: '#about' },
   { label: 'Experience', ref: '#experience' },
@@ -84,11 +159,8 @@ const links = [
 ];
 
 export function NavBar() {
-  const { classes } = useMantineStyles();
-
+  const { classes, theme } = useMantineStyles();
   const [isOpen, { toggle, close }] = useDisclosure(false);
-
-  const theme = useMantineTheme();
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.document && isOpen)
@@ -111,7 +183,22 @@ export function NavBar() {
           sx={{ zIndex: 4 }}
         />
       </MediaQuery>
-      <AnimatePresence >
+
+      <Navs>
+        {links.map(({ label, ref }, i) => (
+          <NavLink
+            key={ref + i}
+            scroll={false}
+            component={Link}
+            href={ref}
+            onClick={close}
+            label={label}
+            rightSection={<></>}
+          />
+        ))}
+      </Navs>
+
+      <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ width: 0, height: 0, borderRadius: '0 0 0 100%' }}
@@ -128,24 +215,28 @@ export function NavBar() {
               duration: 0.5,
             }}
           >
-              {links.map(({ label, ref }, i) => (
-                <motion.div
-                  key={ref + i}
-                  initial={{ opacity: 0, x: '150vw' }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: '150vw' }}
-                  transition={{ bounce: false, duration: 0.5, delay: 0.45 + 0.15 * i }}
-                >
-                  <NavLink
-                    scroll={false}
-                    component={Link}
-                    href={ref}
-                    onClick={close}
-                    label={label}
-                    rightSection={<></>}
-                  />
-                </motion.div>
-              ))}
+            {links.map(({ label, ref }, i) => (
+              <motion.div
+                key={ref + i}
+                initial={{ opacity: 0, x: '150vw' }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: '150vw' }}
+                transition={{
+                  bounce: false,
+                  duration: 0.5,
+                  delay: 0.45 + 0.15 * i,
+                }}
+              >
+                <NavLink
+                  scroll={false}
+                  component={Link}
+                  href={ref}
+                  onClick={close}
+                  label={label}
+                  rightSection={<></>}
+                />
+              </motion.div>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>

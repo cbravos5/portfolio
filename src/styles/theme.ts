@@ -31,13 +31,23 @@ export const theme: MantineThemeOverride = {
 
       height: '100%',
 
-      scrollBehavior: 'smooth'
+      scrollBehavior: 'smooth',
     },
 
     body: {
-      background: theme.colors.primary[0],//theme.fn.linearGradient(180, '#0C0B2B', '#151424'),
+      background: theme.colors.primary[0],
 
-      overflowY: 'scroll'
+      overflowY: 'scroll',
+
+      '&::-webkit-scrollbar': {
+        width: '0.375rem',
+        background: theme.colors.primary[0]
+      },
+    
+      '&::-webkit-scrollbar-thumb': {
+        background: theme.colors.tertiary[0],
+        borderRadius: 999
+      }
     }
   })) 
 }
