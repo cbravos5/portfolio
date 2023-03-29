@@ -76,7 +76,7 @@ const useMantineStyles = createStyles((theme) => ({
 
       transition: '0.25s ease',
 
-      '&:hover': { background: 'none' },
+      '&:hover': { background: 'none', transform: 'scale(1.1)' },
 
       '&:active': {
         background: 'none',
@@ -218,13 +218,13 @@ export function NavBar() {
             {links.map(({ label, ref }, i) => (
               <motion.div
                 key={ref + i}
-                initial={{ opacity: 0, x: '150vw' }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: '150vw' }}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{
                   bounce: false,
                   duration: 0.5,
                   delay: 0.45 + 0.15 * i,
+                  y: { velocity: -100, stiffness: 1000 }
                 }}
               >
                 <NavLink
